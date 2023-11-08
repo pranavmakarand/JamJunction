@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	crossorigin="anonymous">
+<title>Insert title here</title>
+</head>
+<div class="container">
+	<h3>Product Item</h3>
+	<hr>
+
+	<p class="h4 mb-4">Save Product Item</p>
+
+	<form action="#" th:action="@{/admin/{operation}/saveProductItem/{productTypeId}/{productItemId}(operation=add, productItemId=${productItem.id}, productTypeId=${productType.id})}" th:object="${productItem}" method="POST">
+
+		<input type="text" th:field="*{name}" class="form-control mb-4 col-4" placeholder="Name">
+		<input type="text" th:field="*{price}" class="form-control mb-4 col-4" placeholder="Price"> 
+		<input type="number" th:field="*{count}" class="form-control mb-4 col-4" placeholder="Count">
+
+		<button type="submit" class="btn btn-info col-2">Save</button>
+	</form>
+	<hr>
+	<a th:href="@{/admin}">Back to Admin Control</a>
+</div>
+</html>

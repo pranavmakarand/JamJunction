@@ -1,0 +1,141 @@
+<!-- <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+Required meta tags
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+Bootstrap CSS
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	crossorigin="anonymous">
+
+<title>User Directory</title>
+</head>
+<div class="container">
+
+	<h3>User Directory</h3>
+	<hr>
+
+	<table class="table table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Email</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="userList : ${users}">
+				<td th:text="${userList.email}" /></td>
+				<td>
+					<form th:action="@{/admin/{id}/deleteUser(id=${userList.id})}" method="post">
+						<input type="hidden" name="_method" value="DELETE" />
+						<button type="submit">Delete</button>
+					</form>
+				</td>
+				<td>
+					<form th:action="@{/admin/{id}/updateUser(id=${userList.id})}" method="post">
+						<input type="hidden" name="_method" value="UPDATE" />
+						<button type="submit">Update</button>
+					</form>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</html> -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>User Directory</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    
+    h3 {
+        text-align: center;
+        margin: 20px 0;
+    }
+    
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    th, td {
+        text-align: left;
+        padding: 12px;
+        border: 1px solid #ddd;
+    }
+    
+    th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+    
+    button[type="submit"] {
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    button[type="submit"]:hover {
+        background-color: #3e8e41;
+    }
+    
+    input[type="hidden"] {
+        display: none;
+    }
+</style>
+
+</head>
+<div>
+
+    <h3>User Directory</h3>
+    <hr>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Delete</th>
+                <th>Update</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="userList : ${users}">
+                <td th:text="${userList.email}" /></td>
+                <td>
+                    <form th:action="@{/admin/{id}/deleteUser(id=${userList.id})}" method="post">
+                        <input type="hidden" name="_method" value="DELETE" />
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+                <td>
+                    <form th:action="@{/admin/{id}/updateUser(id=${userList.id})}" method="post">
+                        <input type="hidden" name="_method" value="UPDATE" />
+                        <button type="submit">Update</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</html>

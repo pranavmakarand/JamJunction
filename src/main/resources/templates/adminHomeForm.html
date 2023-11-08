@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+  <!-- Bootstrap CSS -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container">
+
+	<h3>Admin Control</h3>
+	<hr>
+	
+	<!-- Add a button -->
+	<a th:href="@{/admin/showUserForm}"
+		class="btn btn-primary btn-sm mb-3">
+		Add User
+	</a>
+	<a th:href="@{/admin/showAllUsers}"
+		class="btn btn-primary btn-sm mb-3">
+		Show Users
+	</a>
+	<a th:href="@{/admin/createProductType}"
+		class="btn btn-primary btn-sm mb-3">
+		Add ProductType
+	</a>
+	<a th:href="@{/admin/showAllProductType}"
+		class="btn btn-primary btn-sm mb-3">
+		Show All Product Types	
+	</a>
+	<br>
+	<a th:href="@{/}" class="link-success">Back to Home</a> 
+</body>
+</div>
+</body>
+</html> 

@@ -1,0 +1,170 @@
+<!-- <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+Required meta tags
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+Bootstrap CSS
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	crossorigin="anonymous">
+
+<title>Product Type Directory</title>
+</head>
+<div class="container">
+
+	<h3>Product Type Directory</h3>
+	<hr>
+
+	<table class="table table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Product Type Names</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="productTypeList : ${productType}">
+				<td th:text="${productTypeList.name}" /></td>
+				<td>
+					<form th:action="@{/admin/{id}/deleteProductType(id=${productTypeList.id})}" method="post">
+						<input type="hidden" name="_method" value="DELETE" />
+						<button type="submit">Delete</button>
+					</form>
+				</td>
+				<td>
+					<form th:action="@{/admin/{id}/updateProductType(id=${productTypeList.id})}" method="post">
+						<input type="hidden" name="_method" value="UPDATE" />
+						<button type="submit">Update</button>
+					</form>
+				</td>
+				<td>
+					<form th:action="@{/admin/{id}/addProductItem(id=${productTypeList.id})}" method="post">
+						<input type="hidden" name="_method" value="UPDATE" />
+						<button type="submit">Add Product Item</button>
+					</form>
+				</td>
+				<td>
+					<form th:action="@{/admin/{id}/showProductItem(id=${productTypeList.id})}" method="post">
+						<button type="submit">Show Product Items</button>
+					</form>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</html> -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>Product Type Directory</title>
+
+<style>
+	body {
+		font-family: Arial, sans-serif;
+		background-color: #f2f2f2;
+	}
+
+	.container {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 20px;
+		background-color: #fff;
+		box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+	}
+
+	h3 {
+		margin-top: 0;
+	}
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		margin-top: 20px;
+	}
+
+	th {
+		background-color: #333;
+		color: #fff;
+		padding: 10px;
+		text-align: left;
+	}
+
+	td {
+		padding: 10px;
+		border-bottom: 1px solid #ccc;
+	}
+
+	button {
+		background-color: #333;
+		color: #fff;
+		padding: 5px 10px;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+
+	button:hover {
+		background-color: #555;
+	}
+</style>
+
+</head>
+
+<body>
+	<div class="container">
+
+		<h3>Product Type Directory</h3>
+		<hr>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Product Type Names</th>
+					<th>Delete</th>
+					<th>Update</th>
+					<th>Add Product Item</th>
+					<th>Show Product Item</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="productTypeList : ${productType}">
+					<td th:text="${productTypeList.name}" /></td>
+					<td>
+						<form th:action="@{/admin/{id}/deleteProductType(id=${productTypeList.id})}" method="post">
+							<input type="hidden" name="_method" value="DELETE" />
+							<button type="submit">Delete</button>
+						</form>
+					</td>
+					<td>
+						<form th:action="@{/admin/{id}/updateProductType(id=${productTypeList.id})}" method="post">
+							<input type="hidden" name="_method" value="UPDATE" />
+							<button type="submit">Update</button>
+						</form>
+					</td>
+					<td>
+						<form th:action="@{/admin/{id}/addProductItem(id=${productTypeList.id})}" method="post">
+							<input type="hidden" name="_method" value="UPDATE" />
+							<button type="submit">Add Product Item</button>
+						</form>
+					</td>
+					<td>
+						<form th:action="@{/admin/{id}/showProductItem(id=${productTypeList.id})}" method="post">
+							<button type="submit">Show Product Items</button>
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</body>
+</html>

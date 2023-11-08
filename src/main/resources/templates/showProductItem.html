@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	crossorigin="anonymous">
+
+<title>Product Item Directory</title>
+</head>
+<div class="container">
+
+	<h3>Product Item Directory</h3>
+	<hr>
+
+	<table class="table table-striped">
+		<thead class="thead-dark">
+        <tr>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Count</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+		</thead>
+		<tbody>
+			<tr th:each="productItemList : ${productItem}">
+				<td th:text="${productItemList.name}" /></td>
+				<td th:text="${productItemList.price}" /></td>
+				<td th:text="${productItemList.count}" /></td>
+				<td>
+					<form th:action="@{/admin/{id}/deleteProductItem(id=${productItemList.id})}" method="post">
+						<input type="hidden" name="_method" value="DELETE" />
+						<button type="submit">Delete</button>
+					</form>
+				</td>
+				<td>
+					<form th:action="@{/admin/{id}/updateProductItem/{productTypeId}(id=${productItemList.id}, productTypeId=${productTypeId})}" method="post">
+						<input type="hidden" name="_method" value="UPDATE" />
+						<button type="submit">Update</button>
+					</form>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</html>
